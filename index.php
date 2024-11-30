@@ -7,6 +7,12 @@ error_reporting(E_ALL);
 // Définir le fuseau horaire si nécessaire
 date_default_timezone_set('America/New_York'); // Changez selon votre fuseau horaire
 ?>
+<?php
+function getCurrentYear() {
+    return date('Y');
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +37,13 @@ date_default_timezone_set('America/New_York'); // Changez selon votre fuseau hor
     if (isset($_POST['CalcAge'])) {
         $dob = $_POST['dob']; // Récupère la date de naissance
         $birthDate = DateTime::createFromFormat('m/d/Y', $dob);
+        
+echo getFullDate();
 
+// Another example of a PHP function you might want to test
+function getFullDate() {
+    return date('m/d/Y');
+}
         // Vérifier si la date est valide
         if ($birthDate && $birthDate->format('m/d/Y') === $dob) {
             $today = new DateTime();
