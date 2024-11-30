@@ -14,6 +14,35 @@ permissions:
   contents: read
 
 jobs:
+  test:
+    name: Run Tests avec phpUnit et SonarQube 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for SonarCloud analysis
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, intl, pdo, mysqli
+          coverage: none
+          #installation des dépendances pour test avec phpunit
+      - name: Install dependencies 
+        run: composer install --no-progress
+      - name: Install dependencies
+        run: composer install --no-progress
+      - name: Run tests using phpunit
+        run: vendor/bin/phpunit --testdox tests/GetCurrentYearTest.php
+         #Exécuter SonarQube scan pour scanner notre code
+      - name: Run SonarQube Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Required for PR analysis
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   docker-build-push:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
