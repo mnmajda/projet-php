@@ -31,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: mkhalsi/projet-php:latest
+          tags: majdaid/projet-php:1.0.${{github.run_number}}
