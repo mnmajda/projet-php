@@ -12,6 +12,10 @@ function getCurrentYear() {
     return date('Y');
 }
 
+// Another example of a PHP function you might want to test
+function getFullDate() {
+    return date('m/d/Y');
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +42,8 @@ function getCurrentYear() {
         $dob = $_POST['dob']; // Récupère la date de naissance
         $birthDate = DateTime::createFromFormat('m/d/Y', $dob);
         
-echo getFullDate();
+        echo getFullDate();
 
-// Another example of a PHP function you might want to test
-function getFullDate() {
-    return date('m/d/Y');
-}
         // Vérifier si la date est valide
         if ($birthDate && $birthDate->format('m/d/Y') === $dob) {
             $today = new DateTime();
