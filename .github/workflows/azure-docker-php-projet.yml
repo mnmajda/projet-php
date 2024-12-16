@@ -17,6 +17,7 @@ jobs:
   test:
     name: Run Tests avec phpUnit et SonarQube 
     runs-on: ubuntu-latest
+    needs: docker-build-push 
 
     steps:
       - name: Checkout code
