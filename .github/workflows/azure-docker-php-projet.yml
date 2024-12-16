@@ -1,4 +1,4 @@
-name: Build image docker, and deploy PHP app to Azure Web App with Docker
+name: Test , Build image docker, and deploy PHP app to Azure Web App with Docker
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
   test:
     name: Run Tests avec phpUnit et SonarQube 
     runs-on: ubuntu-latest
-    needs: docker-build-push 
+   
 
     steps:
       - name: Checkout code
@@ -55,7 +55,7 @@ jobs:
   docker-build-push:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
-
+    needs: test
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -83,7 +83,8 @@ jobs:
   deploy:
     name: Deploy to Azure Web App
     runs-on: ubuntu-latest
-    needs: test  
+    needs: docker-build-push 
+      
     environment:
       name: 'Development'
 
