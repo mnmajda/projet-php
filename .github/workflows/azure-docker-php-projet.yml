@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress
       - name: Run tests using phpunit
-        run: vendor/bin/phpunit --testdox tests/GetFullDate.php
+        run: vendor/bin/phpunit --testdox tests
          #Exécuter SonarQube scan pour scanner notre code
       - name: Run SonarQube Scan
         uses: SonarSource/sonarcloud-github-action@master
