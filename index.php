@@ -7,7 +7,7 @@ require_once 'functions.php'; // Inclut les fonctions
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator</title>
+    <title>Age Calculator !!</title>
     <!-- Lien vers le fichier CSS externe -->
     <link rel="stylesheet" href="style.css">
 </head>
