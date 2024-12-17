@@ -14,7 +14,7 @@ require_once 'functions.php'; // Inclut les fonctions
 <body>
     <div class="container">
         <p id="currDate"><?php echo "Today's Date is: " . getFullDate(); ?></p>
-        <p>Enter your Date of Birth in format: (MM/DD/YYYY)</p>
+    <p>Enter your Date of Birth in format: (MM/DD/YYYY) UPDATE </p>
         <form method="POST" action="process.php">
             <input type="text" name="dob" placeholder="Enter your D.O.B" required>
             <button type="submit" name="CalcAge">Calculate Age</button>
